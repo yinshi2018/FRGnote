@@ -1,0 +1,496 @@
+\documentclass[UTF8]{article}
+\usepackage{appendix}
+\usepackage{dsfont}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{multicol,ifthen,booktabs,amsmath,amsfonts,bm,mathrsfs,amssymb}
+\usepackage{times,mathptmx}
+\usepackage{geometry}
+\usepackage{slashed}
+\renewcommand\baselinestretch{1.5}\protect
+\abovedisplayshortskip 3 pt
+\belowdisplayshortskip 3 pt
+\geometry{left=2cm,right=2cm,top=3cm,bottom=3cm}
+\begin{document}
+%\author{Shi Yin}
+%\affiliation{School of Physics, Dalian University of Technology, Dalian, 116024,P.R. China}
+\title{FRG note}
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Wetterich Equation}
+Consider the generating function which is cutoff at infrared:
+\begin{equation}\label{eq0001}
+Z_k[J]=\exp(W_k[J])=\int [d\phi]\exp\{-S[\phi]-\Delta S_k[\phi]]+J^a\phi_a\}
+\end{equation}
+The $\phi$ stands for every kind of field here. Index $a$ stands for every degree of freedom, including different fields, different components of a field. Such as the space-time coordinates or momentum index.
+$S[\phi]$ is the classical action, $J^a$ is the source of $\phi_a$. $\Delta S_k[\phi]$ is the infrared cutoff,
+ its function is to cutoff the quantum fluctuation at $p^2\leq k^2$ and keep the fluctuation at $p^2>k^2$ invariant.
+  We usually choose the form of quadratic term (mass term) to achieve the infrared cutoff. 
+\begin{equation}\label{eq0002}
+\Delta S_k[\phi]=\frac{1}{2}\phi_aR_{k}^{ab}\phi_b
+\end{equation}
+with $R_{k}^{ab}=R_{k}^{ba}$ ($a,b$ is the index of the boson), $R_{k}^{ab}=-R_{k}^{ba}$ ($a,b$ is the index of the fermion). Here we give a example of a simple scalar field. In the coordinate space:
+\begin{equation}
+\Delta S_k[\phi]=
+\cfrac{1}{2}\int d^4xd^4y\varphi(x)R_k(x,y)\varphi(y)
+\end{equation}
+So 
+\begin{equation}
+\begin{split}
+R_k(x,y)= & \int\cfrac{d^4p}{(2\pi)^4}R_k(p,-p)e^{ip(x-y)}\\
+= & \int\cfrac{d^4p}{(2\pi)^4} R_k(p)e^{ip(x-y)}
+\end{split}
+\end{equation}
+\begin{equation}
+\varphi(x)=\int\cfrac{d^4p}{(2\pi)^4}e^{ipx}\varphi(p)
+\end{equation}
+\begin{equation}
+\begin{split}
+\Delta S_k[\varphi]=&\cfrac{1}{2}\int d^4xd^4y\varphi(x)R_k(x,y)\varphi(y)\\
+=&\cfrac{1}{2}\int d^4xd^4y
+\int\cfrac{d^4p_1}{(2\pi)^4}e^{ip_1x}\varphi(p_1)
+\int\cfrac{d^4p}{(2\pi)^4}R_k(p)e^{ip(x-y)}
+\int\cfrac{d^4p_2}{(2\pi)^4}e^{ip_2y}\varphi(p_2)\\
+=&\cfrac{1}{2}\int\cfrac{d^4p}{(2\pi)^4}\varphi(-p)R_k(p)\varphi(p)\\
+=&\cfrac{1}{2}\int\cfrac{d^4q}{(2\pi)^4}\varphi(-q)R_k(q)\varphi(q)
+\end{split}
+\end{equation}
+For the determined $q$ , the regulator $R_k(q)$ satisfies the following properties
+\begin{equation}
+R_{k\rightarrow\infty}(q)\rightarrow\infty
+\quad
+R_{k\rightarrow 0}(q)\rightarrow 0
+\end{equation}
+To suppress the fluctuation at $q^2<k^2$ and keep the fluctuation at high momentum unchanging, we should choose
+\begin{equation}
+R_k(q)|_{q^2<k^2}\sim k^2,
+\quad
+R_k(q)|_{q^2>k^2}\sim 0
+\end{equation}
+for example
+\begin{equation}
+R_k(q)\sim\cfrac{q^2}{e^{\frac{q^2}{k^2}}-1}
+\end{equation}
+of course, we can choose other forms of the regulator. From \eqref{eq0001} we can get
+\begin{equation}
+\begin{split}
+\cfrac{\delta W_k[J]}{\delta J^a}=&\cfrac{1}{Z_k}
+\cfrac{\delta Z_k[J]}{\delta J^a}\\
+=&\cfrac{1}{Z_k}\int [d\phi]\phi_a\exp\{-S[\phi]
+-\Delta S_k[\phi]+J^a\phi_a\}\\
+=&\langle\phi_a\rangle
+\end{split}
+\end{equation}
+In the below discussing, we replace $\langle\phi_a\rangle$ with $\phi_a$ and
+\begin{equation}
+\cfrac{\delta^2W_k[J]}{\delta J^b\delta J^a}
+=\langle \phi_b\phi_a\rangle_c\equiv G_{ba}^k
+\end{equation}
+index $c$ stands for the connected diagram, $G$ is the propagator that depends on the scale $k$.
+ Now we do the Legendre transformation on the generated functional of connected diagram,
+  then we can obtain the generated functional of one-particle irreducible diagram, that is the effective action
+\begin{equation}\label{eq0003}
+\Gamma_k[\phi]=-W_k[J]+J^a\phi_a-\Delta S_k[\phi]
+\end{equation}
+Beware here $\phi_a \equiv \langle \phi_k \rangle$. In order to consider the boson and fermion together,
+ we introduce the following symbols
+\begin{equation}
+J^a\phi_a=r^{a}_{b}\phi_aJ^b
+\end{equation}
+with
+\begin{equation}
+r^{a}_{b}=(-1)^{ab}\delta^{a}_{b}
+\end{equation}
+\begin{equation}
+(-1)^{ab}\equiv
+\begin{cases}
+-1,\quad for \quad a,b \quad Fermionic\\
+1,\quad for \quad a,b \quad Bosonic\\
+\end{cases}
+\end{equation}
+So from \eqref{eq0003} we obtain
+\begin{equation}
+\cfrac{\delta(\Gamma_k[\phi]+\Delta S_k[\phi])}{\delta\phi_a}
+=r_b^aJ^b
+\end{equation}
+Differentiate $J$ on both sides of the above formula
+\begin{equation}
+\cfrac{\delta^2(\Gamma_k[\phi]+\Delta S_k[\phi])}
+{\delta J^b\delta\phi_a}
+=r_b^a
+\end{equation}
+\begin{equation}
+\begin{split}
+l.h.s=& \cfrac{\delta^2(\Gamma_k[\phi]+\Delta S_k[\phi])}
+{\delta J^b\delta\phi_a}
+\\=& \cfrac{\delta\phi_c}{\delta J^b}\cfrac{\delta^2(\Gamma_k[\phi]+\Delta S_k[\phi])}
+{\delta\phi_c\delta\phi_a}\\
+=& G^{k}_{bc}\cfrac{\Gamma_k[\phi]+\Delta S_k[\phi]}{\delta\phi_c\delta\phi_a}\\
+\end{split}
+\end{equation}
+We obtain
+\begin{equation}
+G^{k}_{bc}\cfrac{\Gamma_k[\phi]+\Delta S_k[\phi]}{\delta\phi_c\delta\phi_a}=r^{a}_{b}
+\end{equation}
+\begin{equation}
+\cfrac{\Gamma_k[\phi]+\Delta S_k[\phi]}{\delta\phi_c\delta\phi_a}
+=(\Gamma^{(2)}_{k}[\phi]+R_k)^{ca}
+\end{equation}
+then
+\begin{equation}
+G^{k}_{bc}(\Gamma^{(2)}_{k}[\phi]+R_k)^{ca}=r^{a}_{b}
+G^{k}_{bc}=r^{a}_{b}(\Gamma^{(2)}_{k}[\phi]+R_k)^{-1}_{ac}
+\end{equation}
+Now we calculate $\partial_tW_k[J]=k\cfrac{\partial}{\partial k}W_k[J]$
+\begin{equation}
+\begin{split}
+\partial_tW_k[J]=& \partial_tlnZ_k[J]\\
+=& \cfrac{1}{Z_k}\partial_tZ_k[J]\\
+=& \cfrac{1}{Z_k}\int[d\phi](-\partial_t\Delta S_k[\phi])e^{-S[\phi]-\Delta S_k[\phi]+J^a\phi_a}\\
+=& -\cfrac{1}{Z_k}\int[d\phi]\frac{1}{2}\phi_a\partial_tR^{ab}_{k}\phi_be^{-S[\phi]-\Delta S_k[\phi]+J^a\phi_a}\\
+=& -\frac{1}{2}\langle\phi_a\phi_b\rangle\partial_tR^{ab}_{k}\\
+=& -\frac{1}{2}(\langle\phi_a\phi_b\rangle_c+\langle\phi_a\rangle\langle\phi_b\rangle)\partial_tR^{ab}_{k}
+\end{split}
+\end{equation}
+we replace $\langle\phi_a\rangle$ with $\phi_a$ again
+\begin{equation}
+\langle\phi_a\phi_b\rangle_c=
+\begin{cases}
+\langle\phi_b\phi_a\rangle,\quad for \quad a,b \quad Bosonic\\
+-\langle\phi_b\phi_a\rangle,\quad for \quad a,b \quad Fermionic\\
+\end{cases}
+\end{equation}
+Then we obtain
+\begin{equation}\label{eq0004}
+\partial_tW_k[J]=-\frac{1}{2}STr{G_k(\partial_tR_k)}-\frac{1}{2}\phi_a\partial_tR^{ab}_{k}\phi_b
+\end{equation}
+$STr$ is super trace, including the trace of every field and dispersed, continuously degree of freedom. For the fermion a negative sign should be added.
+Finally, from \eqref{eq0003} and \eqref{eq0004} we obtain
+\begin{equation}
+\begin{split}
+\partial_t\Gamma_k[\phi]=& -\partial_tW_k[J]-\partial_t\Delta S_k[\phi]\\
+=& \frac{1}{2}\phi_a\partial_tR^{ab}_{k}\phi_b-\frac{1}{2}\phi_a\partial_tR^{ab}_{k}\phi_b\\
+=& \frac{1}{2}STr{G_k(\partial_tR_k)}
+\end{split}
+\end{equation}
+This is the Wetterich equation.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{QCD}
+In this section, we introduce the application of FRG in QCD. We start from the effective action that depends on the infrared cutoff scale $k$
+\begin{equation}
+\begin{split}
+\Gamma_k=&\int d^4x\{ \frac{1}{4}F^{a}_{\mu\nu}F^{a}_{\mu\nu}+Z_{c,k}(\partial_\mu\overline c^a)D^{ab}_{\mu}c^b+\frac{1}{2\xi}(\partial_\mu A^{a}_{\mu})\\
++&Z_{q,k}\overline q(\gamma_\mu D_\mu)q-\lambda_{q,k}[(\overline qT^0q)^2-(\overline q\gamma_5T^aq)^2]\\
++&h_k[\overline q(i\gamma_5T^a\pi^a+T^0\sigma)q]+\frac{1}{2}Z_{\phi,k}(\partial_\mu\phi)^2 \}
+\end{split}
+\end{equation}
+In the effective action 
+\begin{equation}
+\begin{split}
+&\phi=(\sigma,\pi^a) , \rho=\frac{1}{2}\phi^2\\
+&D_\mu=\partial_\mu-iZ^{\frac{1}{2}}_{A,k}g_kA^{a}_{\mu}t^a\\
+&D^{ab}_{\mu}=\partial_\mu\delta^{ab}+Z^{\frac{1}{2}}_{A,k}g_kf^{acb}A^{c}_{\mu}
+\end{split}
+\end{equation}
+In the definition above $T^a (a=1,2,...,N_f^2-1)$ is the generator of flavor space with $T^0=\cfrac{1}{\sqrt{2N_f}} \mathds{1}$; $t^a(a=1,2,...,N_c^2-1)$ is the generator of color space.
+\begin{equation}
+\begin{split}
+&F_{\mu\nu}=\frac{i}{g}[D_\mu,D_\nu]=F^{a}_{\mu\nu}t^a\\
+&F^{a}_{\mu\nu}=Z^{\frac{1}{2}}_{A,k} (\partial_\mu A^{a}_{\nu}-\partial_\nu A^{a}_{\mu}+Z^{\frac{1}{2}}_{A,k} g_k f^{abc}A^b_\mu A^c_\nu)
+\end{split}
+\end{equation}
+We rewrite the Wetterich equation as below
+\begin{equation}\label{weq2}
+\partial_t\Gamma_k[\Phi]=\frac{1}{2}STr{\widetilde{\partial_t}ln(\Gamma^{(2)}_{k}+R_k)}
+\end{equation}
+the tilde on the $\partial_t$ stands for the derivation only works on the regulator $R_k$.
+\begin{equation}
+(\Gamma^{(2)}_{k})_{ab}=\cfrac{\overrightarrow{\delta}}{\delta\Phi^{T}_{a}}\Gamma_k\cfrac{\overleftarrow{\delta}}{\delta\Phi_{b}}
+\end{equation}
+the definition of $\Phi$ is
+\begin{equation}
+\begin{split}
+\Phi=&
+\begin{pmatrix}
+ A(q)\\\sigma(q)\\\pi(q)\\q(q)\\\overline{q}^T(q)
+\end{pmatrix}\\
+\Phi^T=&
+\begin{pmatrix}
+A^T(-q),\sigma(-q),\pi(-q),q^T(q),\overline{q}(q)
+\end{pmatrix}\\
+\end{split}
+\end{equation}
+the fluctuation matrix in the \eqref{weq2} can be rewrite as
+\begin{equation}
+\Gamma^{(2)}_{k}+R_k=P+F
+\end{equation}
+The matrix $P$ contains the propagators and regulators ; matrix $F$ contains the dependence of 
+all kind of fields. So we can expanse the \eqref{weq2} with the number of the fields
+\begin{equation}
+\begin{split}
+\partial_t\Gamma_k[\Phi]=&\frac{1}{2}STr\widetilde{\partial_t}ln(P+F)\\
+=&\frac{1}{2}STr\widetilde{\partial_t}ln[P(1+\frac{1}{P}F)]\\
+\sim&\frac{1}{2}STr\widetilde{\partial_t}ln(1+\frac{1}{P}F)\\
+=&\frac{1}{2}STr\{\widetilde{\partial_t}[\frac{1}{P}F-\frac{1}{2}(\frac{1}{P}F)^2+\frac{1}{3}
+(\frac{1}{P}F)^3-\frac{1}{4}(\frac{1}{P}F)^4+\cdots]\}\\
+=&\frac{1}{2}STr\widetilde{\partial_t}(\frac{1}{P}F)-\frac{1}{4}STr\widetilde{\partial_t}
+(\frac{1}{P}F)^2+\frac{1}{6}STr\widetilde{\partial_t}(\frac{1}{P}F)^3-\frac{1}{8}STr\widetilde
+{\partial_t}(\frac{1}{P}F)^4+\cdots
+\end{split}
+\end{equation}
+then we take the contribution of the lowest order in
+\begin{equation}
+\begin{split}
+\partial_t\Gamma_k[\Phi]=&\frac{1}{2}STr\widetilde{\partial_t}ln(P+F)\\
+=&\frac{1}{2}STr\widetilde{\partial_t}ln[P(1+\frac{1}{P}F)]\\
+=&\frac{1}{2}STr\widetilde{\partial_t}[lnP+ln(1+\frac{1}{P}F)]\\
+=&\frac{1}{2}STr\widetilde{\partial_t}lnP+\frac{1}{2}STr\widetilde{\partial_t}ln(1+\frac{1}{P}F)\\
+=&\frac{1}{2}STr\widetilde{\partial_t}lnP+\frac{1}{2}STr\widetilde{\partial_t}(\frac{1}{P}F)
+-\frac{1}{4}STr\widetilde{\partial_t}(\frac{1}{P}F)^2
++\frac{1}{6}STr\widetilde{\partial_t}(\frac{1}{P}F)^3
+-\frac{1}{8}STr\widetilde{\partial_t}(\frac{1}{P}F)^4+\cdots
+\end{split}
+\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%介子场
+\subsection{Meson field propagator}
+The meson propagator part of the effective potential and its Fourier transform
+\begin{equation}
+\begin{split}
+&\int d^4x \frac{1}{2}Z_{\phi,k}(\partial_\mu\phi)^2\\
+=&\int\frac{d^4q}{(2\pi)^4}\frac{1}{2}Z_{\phi,k}\phi(-q)q^2\phi(q)
+\end{split}
+\end{equation}
+then consider the contribution of the meson mass
+\begin{equation}
+\begin{split}
+\Gamma^{\sigma\sigma}_{k}(q',q)\equiv&\frac{\delta^2\Gamma_k}
+{\delta\sigma(q')\delta\sigma(q)}\\
+=&(Z_{\phi,k}q^2+m^{2}_{\sigma})(2\pi)^4\delta^4(q+q')
+\end{split}
+\end{equation}
+The corresponding cutoff function is
+\begin{equation}
+\begin{split}
+R^{\sigma\sigma}_{k}(q',q)=Z_{\phi,k}\vec{q}^2r_B(\frac{\vec{q}^2}{k^2})(2\pi)^4\delta^4(q+q')
+\end{split}
+\end{equation}
+here we use the 3d regulator which is convenient to the calculation of the finite temperature.
+The $r_B(x)=(\frac{1}{x}-1)\theta(1-x)$ is an optimized regulator.\\
+Then we treat the Pi meson in the same way
+\begin{equation}
+\begin{split}
+\Gamma^{\pi\pi}_{k,ij}(q',q)\equiv&\frac{\delta^2\Gamma_k}
+{\delta\pi_i(q')\delta\pi_j(q)}\\
+=&\delta_{ij}(Z_{\phi,k}q^2+m^{2}_{\pi})(2\pi)^4\delta^4(q+q')
+\end{split}
+\end{equation}
+The cutoff function is
+\begin{equation}
+R^{\pi\pi}_{k,ij}=\delta_{ij}R^{\sigma\sigma}_{k}
+\end{equation}
+In the calculation of finite temperature we have $q_0=2\pi nT$ in which the $n$ is integer.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%夸克场
+\subsection{Quark field propagator}
+The quark propagator part and its Fourier transform
+\begin{equation}
+\begin{split}
+&\int d^4x Z_{q,k}\overline{q}(x)(\gamma_\mu\partial_\mu+\frac{m_f}{Z_{q,k}})q(x)\\
+=&\int\frac{d^4q}{(2\pi)^4}Z_{q,k}\overline{q}(q)(i\slashed{q}+\frac{m_f}{Z_{q,k}})q(q)
+\end{split}
+\end{equation}
+The Fourier transform of the quark and anti-quark fields 
+\begin{equation}
+\begin{split}
+&q(x)=\int \frac{d^4q}{(2\pi)^4}e^{iqx}q(q) \\
+&\overline{q} (x)=\int\frac{d^4q}{(2\pi)^4}e^{-iqx}\overline{q}(q)
+\end{split}
+\end{equation}
+The derivation of the effective action amount of the quark fields is
+\begin{equation}
+\begin{split}
+\Gamma^{\overline{q}q}_{k,ij}(q',q)&\equiv\frac{\overrightarrow{\delta}}{\delta q_i(q')}\Gamma_k\frac{\overleftarrow{\delta}}{\delta\overline{q}_j(q)}\\
+&=(Z_{q,k}i\slashed{q}_{ij}+m_f\delta_{ij})(2\pi)^4\delta^4(q'-q)\\
+&=(Z_{q,k}iq_\mu(\gamma_\mu)_{ij}+m_f\delta_ij)(2\pi)^4\delta^4(q'-q)
+\end{split}
+\end{equation}
+\begin{equation}
+\begin{split}
+\Gamma^{q\overline{q}}_{k,ij}&\equiv\frac{\overrightarrow{\delta}}{\delta q_i(q')}\Gamma_k\frac{\overleftarrow{\delta}}{\delta\overline{q}_j(q)}\\
+&=-(Z_{q,k}iq_\mu(\gamma_\mu)_{ji}+m_f\delta_{ji})(2\pi)^4\delta^4(q'-q)\\
+\end{split}
+\end{equation}
+The corresponding regulator function is 
+\begin{equation}
+R^{\overline{q}q}_{k,ij}(q',q)=Z_{q,k}i\vec{q}\cdot\vec{\gamma}_{ij}r_F(\frac{\vec{q}^2}{k^2})(2\pi)^4\delta^4(q'-q)
+\end{equation}
+with
+\begin{equation}
+r_F(x)=(\frac{1}{\sqrt{x}}-1)\theta(1-x)
+\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%胶子场
+\subsection{Gluon field propagator}
+The differential form of the effective action is 
+\begin{equation}
+\begin{split}
+(\Gamma^{AA}_{k})^{ab}_{\mu\nu}(q',q)&\equiv\frac{\delta^2\Gamma_k}{\delta A^{a}_{\mu}(q') \delta A^{b}_{\nu}(q)}\\
+&=[Z_{A,k}q^2(\delta_{\mu\nu}-\frac{q_\mu q_\nu}{q^2})+\frac{q^2}{\xi}(\frac{q_\mu q_\nu}{q^2})]\delta^{ab}(2\pi)^4\delta^4(q'+q)
+\end{split}
+\end{equation}
+The regulator function is
+\begin{equation}
+\begin{split}
+(R^{AA}_{k})^{ab}_{\mu\nu}(q',q)=[Z_{A,k}\vec{q}^2r_B(\frac{\vec{q}^2}{k^2})(\delta_{\mu\nu}-\frac{q_\mu q_\nu}{q^2})+\frac{\vec{q}^2}{\xi}
+r_B(\frac{\vec{q}}{k^2})(\frac{q_\mu q_\nu}{q^2})]\delta^{ab}(2\pi)^4\delta^4(q'+q)
+\end{split}
+\end{equation}
+The propagator of the gluon is
+\begin{equation}
+\begin{split}
+(G^{AA}_{k})^{ab}_{\mu\nu}(q',q)=[\frac{1}{Z_{A,k}(q_0^2+\vec{q}^2(1+r_B))}(\delta_{\mu\nu}-\frac{q_\mu q_\nu}{q^2})+\frac{\xi}{q_0^2+\vec{q}
+^2(1+r_B)}\frac{q_\mu q_\nu}{q^2}]\delta^{ab}(2\pi)^4\delta^4(q'+q)
+\end{split}
+\end{equation}
+In the following calculation we adopt the Landau gauge $\xi=0$, then we can obtain the matrix $P$ \\
+$P=$
+\begin{equation}
+\begin{pmatrix}
+\begin{smallmatrix}
+Z_{A,k}(q_0^2+\vec{q}^2(1+r_B))(\delta_{\mu \nu}-\frac{q_\mu q_\nu}{q^2})\delta_{ab} & 0 & 0 & 0 & 0 \\
+0 & Z_{\phi,k}(q_0^2+\vec{q}^2(1+r_B))+m_{\sigma}^{2} & 0 & 0 & 0\\
+0 & 0 & [Z_{\phi,k}(q_0^2+\vec{q}^2(1+r_B))+m_{\pi}^{2}]\delta_{ij} & 0 & 0\\
+0 & 0 & 0 & 0 & -(Z_{q,k}i(q_0r_0+\vec{q}\cdot\vec{r}(1+r_F))+m_f)^T\\
+0 & 0 & 0 & Z_{q,k}i(q_0r_0+\vec{q}\cdot\vec{r}(1+r_F))+m_f & 0
+\end{smallmatrix}
+\end{pmatrix}
+\end{equation}
+And then we can obtain the propagator matrix
+\begin{equation}
+\frac{1}{P}=
+\begin{pmatrix}
+(G^{AA}_{k})^{ab}_{\mu\nu} & 0 & 0 & 0 & 0 \\
+0 & G^{\sigma}_{k} & 0 & 0 & 0\\
+0 & 0 & (G^{\pi}_{k})_{ij} & 0 & 0\\
+0 & 0 & 0 & 0 & G^{q\overline{q}}_{k}\\
+0 & 0 & 0 & G^{\overline{q}q}_{k} & 0
+\end{pmatrix}
+\end{equation}
+the definition of the matrix elements are
+\begin{equation}
+\begin{split}
+(G^{AA}_{k})^{ab}_{\mu\nu}&=\frac{1}{Z_{A,k}(q_0^2+\vec{q}^2(1+r_B))}(\delta_{\mu\nu}-\frac{q_\mu q_\nu}{q^2})\delta_{ab}\\
+G^{\sigma}_{k}&=\frac{1}{Z_{\phi,k}(q_0^2+\vec{q}^2(1+r_B))+m_{\sigma}^{2}}\\
+(G^{\pi}_{k})_{ij}&=\frac{1}{Z_{\phi,k}(q_0^2+\vec{q}^2(1+r_B))+m_{\pi}^{2}}\delta_{ij}\\
+G^{q\overline{q}}_{k}&=\frac{-Z_{q,k}i(q_0r_0+\vec{q}\cdot\vec{r}(1+r_F))+m_f}{Z_{q,k}^{2}(q_0^2+\vec{q}^2(1+r_F)^2)+m_f^2}\\
+G^{\overline{q}q}_{k}&=-(G^{q\overline{q}}_{k})^T
+\end{split}
+\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%场依赖部分F
+%胶子顶点
+\subsection{Gluon vertex}
+\begin{equation}
+\begin{split}
+\Gamma_k&\sim\frac{1}{4}F^{a}_{\mu\nu}F^{a}_{\mu\nu}\\
+&=\frac{1}{4}Z_{A,k}(\partial_\mu A^{a}_{\nu}-\partial_\nu A^{a}_{\mu}+Z_{A,k}^{\frac{1}{2}}g_kf^{abc}A^b_\mu A^c_\nu)(\partial_\mu A^{a}_{\nu}-\partial_\nu 
+A^{a}_{\mu}+Z_{A,k}^{\frac{1}{2}}g_kf^{ab'c'}A^{b'}_\mu A^{c'}_\nu)\\
+&\sim \frac{1}{2}Z^{\frac{3}{2}}_{A,k}(\partial_\mu A^{a}_{\nu}-\partial_\nu A^{a}_{\mu})g_kf^{abc}A^{b}_{\mu}A^{c}_{\nu}+\frac{1}{4}Z^{2}_{A,k}g^{2}_{k}
+f^{abc}f^{ab'c'}A^{b}_{\mu}A^{c}_{\nu}A^{b'}_\mu A^{c'}_\nu
+\end{split}
+\end{equation}
+here we let
+\begin{equation}
+\Gamma_1=(\partial_\mu A^{a}_{\nu}-\partial_\nu A^{a}_{\mu})f^{abc}A^{b}_{\mu}A^{c}_{\nu}
+\end{equation}
+then we can calculate the derivative
+%\begin{equation}
+%\begin{split}
+%\frac{\delta\Gamma_1}{\delta A^{a}_{\mu}}&=2(\partial_\mu A^{b}_{\nu}-\partial_\nu A^{b}_{\mu})f^{bac}A^{c}_{\nu}\\
+%&=2f^{abc}(\partial_\nu A^{b}_{\mu}-\partial_\mu A^{b}_{\nu})A^{c}_{\nu}\\
+%&=2f^{abc}(\partial_\nu A^{b}_{\mu})A^{c}_{\nu}-2f^{abc}(\partial_\mu A^{b}_{\nu})A^{c}_{\nu}\\
+%\end{split}
+%\end{equation}
+%\begin{equation}
+%\begin{split}
+%\frac{\delta^2\Gamma_1}{\delta A^{a}_{\mu}\delta A^{b}_{\nu}}&=2f^{ab'b}(\partial_\nu A^{b'}_{\mu})-2f^{abc}\delta_{\mu\nu}(\partial_\rho A^{c}_{\rho})-
+%2f^{ab'b}(\partial_\mu A^{b'}_{\nu})+2f^{abc}(\partial_\mu A^{c}_{\nu})\\
+%&=2f^{abc}(\partial_\mu A^{c}_{\nu}-\partial_\nu A^{c}_{\mu}+\partial_\mu A^{c}_{\nu}-\delta_{\mu\nu}\partial_\rho A^{c}_{\rho})
+%\end{split}
+%\end{equation}
+\begin{equation}
+\frac{\delta\Gamma_1}{\delta A^{a}_{\mu}}=-2(\partial_\nu)_af^{abc}A^{b}_{\mu}A^{c}_{\nu}+2f^{abc}(\partial_\nu A^{b}_{\mu}-\partial_\mu A^{b}_{\nu})
+A^{c}_{\nu}
+\end{equation}
+\begin{equation}
+\begin{split}
+\frac{\delta^2\Gamma_1}{\delta A^{a}_{\mu}\delta A^{b}_{\nu}}&=-2(\partial_\rho)_af^{abc}\delta_{\mu\nu}A^{c}_{\rho}-2(\partial_\nu)_af^{acb}A^{c}_{\mu}
++2f^{abc}(\partial_\rho)_b\delta_{\mu\nu}A^{c}_{\rho}+2f^{acb}\partial_\nu A^{c}_{\mu}-2f^{abc}(\partial_\mu)_bA^{c}_{\nu}-2f^{acb}\partial_\mu A^{c}_{\nu}\\
+&=2\delta_{\mu\nu}f^{abc}[(\partial_\rho)_b-(\partial_\rho)_a]A^{c}_{\rho}+2f^{abc}[(\partial_\nu)_aA^{c}_{\mu}-(\partial_\mu)_bA^{c}_{\nu}]+2f^{abc}
+(\partial_\mu A^{c}_{\nu}-\partial_\nu A^{c}_{\mu})
+\end{split}
+\end{equation}
+\begin{equation}
+\begin{split}
+\frac{\delta^3\Gamma_1}{\delta A^{a}_{\mu}\delta A^{b}_{\nu}\delta A^{c}_{\rho}}&=2
+\end{split}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%附录 n点函数的傅立叶变换
+\begin{appendices}
+\section{Fourier transform of n-point function}
+Consider a general n-point function $V(x_1,x_2,...,x_n)$,
+Its Fourier transformation can be written as:
+\begin{equation}
+V(x_1,x_2,...,x_n)=\int\cfrac{d^4p_1}{(2\pi)^4}
+\cfrac{d^4p_2}{(2\pi)^4}...\cfrac{d^4p_n}{(2\pi)^4}
+V(p_1,p_2,...p_n)e^{i(p_1x_1+p_2x_2+...p_nx_n)}
+\end{equation}
+if $V$ satisfies the following properties:
+\begin{equation}
+V(x_1,x_2,...x_n)=V(x_1-x_n,x_2-x_n,...,0)
+\end{equation}
+The value of $V$ depends only on the relative value of the coordinates, 
+so we can obtain
+\begin{equation}
+\begin{split}
+V(p_1,p_2,...p_n)=&\int d^4x_1d^4x_2...d^4x_nV(x_1,x_2,...x_n)
+e^{-i(p_1x_1+p_2x_2+...p_nx_n)}\\
+=&\int d^4x_1d^4x_2...d^4x_nV(x_1-x_n,x_2-x_n,...0)
+e^{-i(p_1x_1+p_2x_2+...p_nx_n)}\\
+=&\int d^4x_1d^4x_2...d^4x_nV(x_1,x_2,...0)
+e^{-i[p_1(x_1+x_n)p_2(x_2+x_n)+...p_{n-1}(x_{n-1}+x_n)]}\\
+=&\int d^4x_1d^4x_2...d^4x_nV(x_1,x_2,...0)
+e^{-i[p_1x_1+p_2x_2+...p_{n-1}x_{n-1}+(p_1+p_2+...+p_n)x_n]}\\
+=&(2\pi)^4\delta^4(p_1+p_2+...p_n)\int d^4x_1d^4x_2...d^4x_{n-1}
+V(x_1,x_2,...,0)e^{-i(p_1x_1+p_2x_2+...p_{n-1}x_{n-1})}
+\end{split}
+\end{equation}
+So we can redefine $V(p_1,p_2,...p_n)$ as
+\begin{equation}
+V(p_1,p_2,...p_n)=(2\pi)^4\delta^4(p_1+p_2+...p_n)
+V(p_1,p_2,...p_{n-1},-(p_1+p_2+...p_{n-1}))
+\end{equation}
+\begin{equation}
+\begin{split}
+V(x_1,x_2,...x_n)
+&=\int\cfrac{d^4p_1}{(2\pi)^4}\cfrac{d^4p_2}{(2\pi)^4}...
+\cfrac{d^4p_n}{(2\pi)^4}(2\pi)^4\delta^4(p_1+p_2...+p_n)
+V(p_1,p_2,...-(p_1,p_2+...p_{n-1}))e^{i(p_1x_1+p_2x_2+...p_nx_n)}\\
+&=\int\cfrac{d^4p_1}{(2\pi)^4}\cfrac{d^4p_2}{(2\pi)^4}...
+\cfrac{d^4p_{n-1}}{(2\pi)^4}V(p_1,p_2,...-(p_1,p_2+...p_{n-1}))
+e^{i[p_1(x_1-x_n)+p_2(x_2-x_n)+...p_{n-1}(x_{n-1}-x_n)]}
+\end{split}
+\end{equation}
+\end{appendices}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

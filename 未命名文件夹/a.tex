@@ -1,0 +1,189 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{multicol,ifthen,booktabs,amsmath,amsfonts,bm,mathrsfs,amssymb}
+\usepackage{times,mathptmx}
+\usepackage{geometry}
+\renewcommand\baselinestretch{1.5}\protect
+\abovedisplayshortskip 3 pt
+\belowdisplayshortskip 3 pt
+\geometry{left=2cm,right=2cm,top=3cm,bottom=3cm}
+\begin{document}
+\section{Wetterich Equation}
+
+考虑红外截断的生成泛函
+\begin{equation}\label{eq0001}
+Z_k[J]=\exp(W_k[J])=\int [d\phi]\exp\{-S[\phi]-\Delta S_k[\phi]]+J^a\phi_a\}
+\end{equation}
+这里，
+我们用$\phi$表示所有各种类型的场。
+抽象指标$a$代表各种自由度，
+包括不同的场，
+同种场的不同分量，
+以及其它各种分离和连续的自由度，
+比如时空坐标或动量指标。
+
+$S[\phi]$是经典的作用量，
+$J^a$是$\phi_a$的源，
+$\Delta S_k[\phi]$是红外截断，
+它的作用是截断$p^2<k^2$的量子涨落。
+通常我们选取二次项的形式（类似于质量项）
+来实现这种红外截断
+\begin{equation}
+\Delta S_k[\phi]=\cfrac{1}{2}\phi_aR_k^{ab}\phi_b
+\end{equation}
+其中$R_k^{ab}=R_k^{ba}$($a,b$ 是玻色场指标），
+$R_k^{ab}=-R_k^{ba}$($b,a$ 是费米场指标），
+我们这里以单个标量场为例，
+在坐标空间中
+\begin{equation}
+\Delta S_k[\phi]=
+\cfrac{1}{2}\int d^4xd^4y\varphi(x)R_k(x,y)\varphi(y)
+\end{equation}
+根据附录1.A,
+得
+\begin{equation}
+\begin{split}
+R_k(x,y)= & \int\cfrac{d^4p}{(2\pi)^4}R_k(p,-p)e^{ip(x-y)}\\
+= & \int\cfrac{d^4p}{(2\pi)^4} R_k(p)e^{ip(x-y)}
+\end{split}
+\end{equation}
+\begin{equation}
+\varphi(x)=\int\cfrac{d^4p}{(2\pi)^4}e^{ipx}\varphi(p)
+\end{equation}
+\begin{equation}
+\begin{split}
+\Delta S_k[\varphi]=&\cfrac{1}{2}\int d^4xd^4y\varphi(x)R_k(x,y)\varphi(y)\\
+=&\cfrac{1}{2}\int d^4xd^4y
+\int\cfrac{d^4p_1}{(2\pi)^4}e^{ip_1x}\varphi(p_1)
+\int\cfrac{d^4p}{(2\pi)^4}R_k(p)e^{ip(x-y)}
+\int\cfrac{d^4p_2}{(2\pi)^4}e^{ip_2y}\varphi(p_2)\\
+=&\cfrac{1}{2}\int\cfrac{d^4p}{(2\pi)^4}\varphi(-p)R_k(p)\varphi(p)\\
+=&\cfrac{1}{2}\int\cfrac{d^4q}{(2\pi)^4}\varphi(-q)R_k(q)\varphi(q)
+\end{split}
+\end{equation}
+对于确定的$q$,
+regulator $R_k(q)$满足下面的性质
+\begin{equation}
+R_{k\rightarrow\infty}(q)\rightarrow\infty
+\quad
+R_{k\rightarrow 0}(q)\rightarrow 0
+\end{equation}
+为了压低$q^2<k^2$动量模式的涨落，
+而让高动量模式的涨落没有影响，
+我们可以选择
+\begin{equation}
+R_k(q)|_{q^2<k^2}\sim k^2,
+\quad
+R_k(q)|_{q^2>k^2}\sim 0
+\end{equation}
+比如
+\begin{equation}
+R_k(q)\sim\cfrac{q^2}{e^{\frac{q^2}{k^2}}-1}
+\end{equation}
+当然，
+我们可以选择其他形式的regulator,
+从式\eqref{eq0001}可以得到
+\begin{equation}
+\begin{split}
+\cfrac{\delta W_k[J]}{\delta J^a}=&\cfrac{1}{Z_k}
+\cfrac{\delta Z_k[J]}{\delta J^a}\\
+=&\cfrac{1}{Z_k}\int [d\phi]\phi_a\exp\{-S[\phi]
+-\Delta S_k[\phi]+J^a\phi_a\}\\
+=&\langle\phi_a\rangle
+\end{split}
+\end{equation}
+在下面的讨论中，
+在不引起混淆的情况下，
+我们仍然用$\phi_a$表示$\langle\phi_a\rangle$。
+同样
+\begin{equation}
+\cfrac{\delta^2W_k[J]}{\delta J^b\delta J^a}
+=\langle \phi_b\phi_a\rangle_c\equiv G_{ba}^k
+\end{equation}
+下标c代表连通图，
+G是标度k依赖的传播子。
+
+下面，
+我们对连通图的生成泛函$W_k[J]$作Legendre变换。
+得到单粒子不可约的(1PI)图的生成泛函，
+即有效作用量
+\begin{equation}\label{eq0002}
+\Gamma_k[\phi]=-W_k[J]+J^a\phi_a-\Delta S_k[\phi]
+\end{equation}
+注意，
+这里的$\phi_a\equiv\langle\phi_a\rangle$
+
+为了将玻色场和费米场一并考虑，
+我们引入下面的记号
+\begin{equation}
+J^a\phi_a=r_b^a\phi_aJ^b
+\end{equation}
+其中
+\begin{equation}
+r_b^a=(-1)^{ab}\delta_b^a
+\end{equation}
+\begin{equation}
+(-1)^{ab}\equiv
+\begin{cases}
+-1,\quad for \quad a,b \quad fermion\\
+1,\quad for \quad a,b \quad beson\\
+\end{cases}
+\end{equation}
+这样，
+从式\eqref{eq0002}得到
+\begin{equation}
+\cfrac{\delta(\Gamma_k[\phi]+\Delta S_k[\phi])}{\delta\phi_a}
+=r_b^aJ^b
+\end{equation}
+对上式两边再求$J$的微商，
+得到
+\begin{equation}
+\cfrac{\delta^2(\Gamma_k[\phi]+\Delta S_k[\phi])}
+{\delta J^b\delta\phi_a}
+=r_b^a
+\end{equation}
+
+\subsection*{附录1.A~~~ n点函数的Fourier变换}
+考虑一个一般的n点函数$V(x_1,x_2,...,x_n)$,
+它的Fourier变换为
+\begin{equation}
+V(x_1,x_2,...,x_n)=\int\cfrac{d^4p_1}{(2\pi)^4}
+\cfrac{d^4p_2}{(2\pi)^4}...\cfrac{d^4p_n}{(2\pi)^4}
+V(p_1,p_2,...p_n)e^{i(p_1x_1+p_2x_2+...p_nx_n)}
+\end{equation}
+假如V满足下面的性质
+\begin{equation}
+V(x_1,x_2,...x_n)=V(x_1-x_n,x_2-x_n,...,0)
+\end{equation}
+即V的函数值只依赖于坐标的相对值，
+那么
+\begin{equation}
+\begin{split}
+V(p_1,p_2,...p_n)=&\int d^4x_1d^4x_2...d^4x_nV(x_1,x_2,...x_n)
+e^{-i(p_1x_1+p_2x_2+...p_nx_n)}\\
+=&\int d^4x_1d^4x_2...d^4x_nV(x_1-x_n,x_2-x_n,...0)
+e^{-i(p_1x_1+p_2x_2+...p_nx_n)}\\
+=&\int d^4x_1d^4x_2...d^4x_nV(x_1,x_2,...0)
+e^{-i[p_1(x_1+x_n)p_2(x_2+x_n)+...p_{n-1}(x_{n-1}+x_n)]}\\
+=&\int d^4x_1d^4x_2...d^4x_nV(x_1,x_2,...0)
+e^{-i[p_1x_1+p_2x_2+...p_{n-1}x_{n-1}+(p_1+p_2+...+p_n)x_n]}\\
+=&(2\pi)^4\delta^4(p_1+p_2+...p_n)\int d^4x_1d^4x_2...d^4x_{n-1}
+V(x_1,x_2,...,0)e^{-i(p_1x_1+p_2x_2+...p_{n-1}x_{n-1})}
+\end{split}
+\end{equation}
+这样我们就可以将$V(p_1,p_2,...p_n)$重新定义为
+\begin{equation}
+V(p_1,p_2,...p_n)=(2\pi)^4\delta^4(p_1+p_2+...p_n)
+V(p_1,p_2,...p_{n-1},-(p_1+p_2+...p_{n-1}))
+\end{equation}
+\begin{equation}
+\begin{split}
+V(x_1,x_2,...x_n)
+&=\int\cfrac{d^4p_1}{(2\pi)^4}\cfrac{d^4p_2}{(2\pi)^4}...
+\cfrac{d^4p_n}{(2\pi)^4}(2\pi)^4\delta^4(p_1+p_2...+p_n)
+V(p_1,p_2,...-(p_1,p_2+...p_{n-1}))e^{i(p_1x_1+p_2x_2+...p_nx_n)}\\
+&=\int\cfrac{d^4p_1}{(2\pi)^4}\cfrac{d^4p_2}{(2\pi)^4}...
+\cfrac{d^4p_{n-1}}{(2\pi)^4}V(p_1,p_2,...-(p_1,p_2+...p_{n-1}))
+e^{i[p_1(x_1-x_n)+p_2(x_2-x_n)+...p_{n-1}(x_{n-1}-x_n)]}
+\end{split}
+\end{equation}
+\end{document}
