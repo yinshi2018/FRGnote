@@ -237,8 +237,8 @@ all kind of fields. So we can expanse the \eqref{weq2} with the number of the fi
 \partial_t\Gamma_k[\Phi]=&\frac{1}{2}STr\widetilde{\partial_t}ln(P+F)\\
 =&\frac{1}{2}STr\widetilde{\partial_t}ln[P(1+\frac{1}{P}F)]\\
 \sim&\frac{1}{2}STr\widetilde{\partial_t}ln(1+\frac{1}{P}F)\\
-=&\frac{1}{2}STr\{\widetilde{\partial_t}[\frac{1}{P}F-\frac{1}{2}(\frac{1}{P}F)^2+\frac{1}{3}
-(\frac{1}{P}F)^3-\frac{1}{4}(\frac{1}{P}F)^4+\cdots]\}\\
+=&\frac{1}{2}STr\bigg\{\widetilde{\partial_t}[\frac{1}{P}F-\frac{1}{2}(\frac{1}{P}F)^2+\frac{1}{3}
+(\frac{1}{P}F)^3-\frac{1}{4}(\frac{1}{P}F)^4+\cdots]\bigg\}\\
 =&\frac{1}{2}STr\widetilde{\partial_t}(\frac{1}{P}F)-\frac{1}{4}STr\widetilde{\partial_t}
 (\frac{1}{P}F)^2+\frac{1}{6}STr\widetilde{\partial_t}(\frac{1}{P}F)^3-\frac{1}{8}STr\widetilde
 {\partial_t}(\frac{1}{P}F)^4+\cdots
@@ -439,10 +439,31 @@ A^{c}_{\nu}
 \end{equation}
 \begin{equation}
 \begin{split}
-\frac{\delta^3\Gamma_1}{\delta A^{a}_{\mu}\delta A^{b}_{\nu}\delta A^{c}_{\rho}}&=2
+\frac{\delta^3\Gamma_1}{\delta A^{a}_{\mu}\delta A^{b}_{\nu}\delta A^{c}_{\rho}}&=2\delta_{\mu\nu}f^{abc}[(\partial_\rho)_b-(\partial_\rho)_a]+2f^{abc}[(\partial_\nu)_a\delta_{\mu\rho}-(\partial_\mu)_b\delta_{\rho\nu}]+2f^{abc}[(\partial_\mu)_c\delta_{\rho\nu}-(\partial_\nu)_c\delta_{\mu\rho}]\\
+&=2f^{abc} \bigg\{ \delta_{\mu\nu}[(\partial_\rho)_b-(\partial_\rho)_a]+\delta_{\mu\rho}[(\partial_\nu)_a-(\partial_\nu)_c]+\delta_{\rho\nu}[(\partial_\mu)_c-(\partial_\mu)_b] \bigg\}
 \end{split}
 \end{equation}
-
+If we set
+\begin{equation}
+\begin{split}
+\Gamma_2&=f^{abc}f^{ab'c'}A^b_\mu A^c_\nu A^{b'}_\mu A^{c'}_\nu\\
+&=f^{abc}f^{a'b'c}A^a_\mu A^b_\nu A^{a'}_\mu A^{b'}_\nu
+\end{split}
+\end{equation}
+Then we can obtain the derivation of the $\Gamma_2$
+\begin{equation}
+\begin{split}
+\frac{\delta\Gamma_2}{\delta A^a_\mu}=4f^{abc}f^{a'b'c}A^b_\nu A^{a'}_\mu A^{b'}_\nu
+\end{split}
+\end{equation}
+\begin{equation}
+\begin{split}
+\frac{\delta^2\Gamma_2}{\delta A^a_\mu\delta A^b_\nu}=&4f^{abc}f^{a'b'c}A^{a'}_\mu A^{b'}_\nu+4f^{ab''c}f^{ab'c}A^{b''}_\rho \delta_{\mu\nu} A^{b'}_\rho\\
+&+4f^{ab''c}f^{a'bc}A^{b''}_\nu A^{a'}_\mu\\
+=&4f^{abc}f^{a'b'c}A^{a'}_\mu A^{b'}_\nu+4\delta_{\mu\nu}f^{ab'c}f^{ab''c}A^{b'}_\rho A^{b''}_\rho-4f^{ab''c}f^{ba'c}A^{a'}_\mu A^{b''}_\nu
+\end{split}
+\end{equation}
+So we get the F matrix element of the gluon part 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %附录 n点函数的傅立叶变换
 \begin{appendices}
