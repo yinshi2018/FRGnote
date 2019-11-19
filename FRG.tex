@@ -556,6 +556,50 @@ Now expand the equation above at the point $\phi_i=\bar{\phi}_i$
 \begin{equation}
 	(\Gamma^{\phi\phi}_k)_{ij}=(\Gamma^{\phi\phi}_k)_{ij}\bigg\arrowvert_{\bar{\phi}}+\frac{\delta^3\Gamma_k}{\delta\phi_i\delta\phi_j\delta\phi_k}\bigg\arrowvert_{\bar{\phi}}(\phi_k-\bar{\phi}_k)+\frac{1}{2}\frac{\delta^4\Gamma_k}{\delta\phi_i\delta\phi_j\delta\phi_k\delta\phi_l}\bigg\arrowvert_{\bar{\phi}}(\phi_k-\bar{\phi}_k)(\phi_l-\bar{\phi}_l)+\dots
 \end{equation}
+Here we only consider to the two derivative of the effective potential
+\begin{equation}
+\begin{split}
+\frac{\delta^3\Gamma_k}{\delta\phi_i\delta\phi_j\delta\phi_k}&=V''_k(\rho)\phi_k\delta_{ij}+V''_k(\rho)(\delta_{ik}\phi_i+\delta_{jk}\phi_i)+V'''_k(\rho)\phi_i\phi_j\phi_k\\
+&=V''_k(\rho)(\delta_{ij}\phi_k+\delta_{ik}\phi_j+\delta_{jk}\phi_i)+V'''_k(\rho)\phi_i\phi_j\phi_k
+\end{split}
+\end{equation}
+\begin{equation}
+\begin{split}
+\frac{\delta^4\Gamma_k}{\delta\phi_i\delta\phi_j\delta\phi_k\delta\phi_l}&=V''_k(\rho)(\delta_{ij}\delta_{kl}+\delta_{ik}\delta_{jl}+\delta_{jk}\phi_{il})\\
+&+V'''_k(\rho)(\delta_{ij}\phi_k\phi_l+\delta_{ik}\phi_j\phi_l+\delta_{jk}\phi_i\phi_l)\\
+&+V'''_k(\rho)(\delta_{il}\phi_j\phi_k+\delta_{jl}\phi_i\phi_k+\delta_{kl}\phi_i\phi_j)\\
+&+V''''_k(\rho)\phi_i\phi_j\phi_k\phi_l\\
+&=V''_k(\rho)(\delta_{ij}\delta_{kl}+\delta_{ik}\delta_{jl}+\delta_{jk}\phi_{il})\\
+&+V^{(3)}_{k}(\rho)(\delta_{ij}\phi_k\phi_l+\delta_{ik}\phi_j\phi_l+\delta_{jk}\phi_i\phi_l+\delta_{il}\phi_j\phi_k+\delta_{jl}\phi_i\phi_k+\delta_{kl}\phi_i\phi_j)\\
+&+V^{(4)}_{k}(\rho)\phi_i\phi_j\phi_k\phi_l
+\end{split}
+\end{equation}
+The definition of the Sigma meson mass is
+\begin{equation}
+\begin{split}
+m^2_{\sigma}=(\Gamma^{\sigma\sigma}_k)\big|_{\bar{\phi}}=(\Gamma^{\phi\phi}_k)_{00}\big|_{\bar{\phi}}&=V'_k(\rho)+V''_k(\rho)\bar{\phi}_0\bar{\phi}_0\\
+&=V'_k(\rho)+2\rho V''_k(rho)
+\end{split}
+\end{equation}
+And the Pion mass is
+\begin{equation}
+m^2_{\pi}=(\Gamma^{\pi\pi}_k)_{ij}\big|_{\bar{\phi}}=(\Gamma^{\phi\phi}_k)_{ij}\big|_{\bar{\phi}}=V'_k(\rho)\delta_{ij}
+\end{equation}
+Then the other derivation part of the Pion and Sigma meson can be written as
+\begin{equation}
+\begin{split}
+(\Gamma^{\sigma\pi}_k)\big|_{\bar{\phi}}&=0\\
+\frac{\delta^3\Gamma_k}{\delta\sigma\delta\sigma\delta\sigma}\bigg|_{\bar{\phi}}&=V''_k(\rho)(3\bar{\phi}_0)+V^{(3)}_{k}(\rho)\bar{\phi}_0^3\\
+&=3(2\rho)^{\frac{1}{2}}V''_k(\rho)+(2\rho)^{\frac{3}{2}}V^{(3)}_{k}(\rho)\\
+\frac{\delta^3\Gamma_k}{\delta\sigma\delta\sigma\delta\pi_k}\bigg|_{\bar{\phi}}&=0\\
+\frac{\delta^3\Gamma_k}{\delta\sigma\delta\pi_j\delta\sigma}\bigg|_{\bar{\phi}}&=0\\
+\frac{\delta^3\Gamma_k}{\delta\sigma\delta\pi_j\delta\pi_k}\bigg|_{\bar{\phi}}&=V''_k(\rho)\delta_{jk}\bar{\phi}_0=\delta_{jk}(2\rho)^{\frac{1}{2}}V''_k(\rho)\\
+\frac{\delta^3\Gamma_k}{\delta\pi_i\delta\pi_j\delta\sigma}\bigg|_{\bar{\phi}}&=\delta_{ij}(2\rho)^{\frac{1}{2}}V''_k(\rho)\\
+\frac{\delta^3\Gamma_k}{\delta\pi_i\delta\pi_j\delta\pi_k}\bigg|_{\bar{\phi}}&=0
+\end{split}
+\end{equation}
+If we only take the lowest derivation into account
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %附录 n点函数的傅立叶变换
 \begin{appendices}

@@ -5,4 +5,4 @@
 \contentsline {subsection}{\numberline {2.3}Gluon field propagator}{8}
 \contentsline {subsection}{\numberline {2.4}Gluon vertex}{9}
 \contentsline {subsection}{\numberline {2.5}Meson vertex}{11}
-\contentsline {section}{\numberline {A}Fourier transform of n-point function}{12}
+\contentsline {section}{\numberline {A}Fourier transform of n-point function}{13}
