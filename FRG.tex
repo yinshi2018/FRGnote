@@ -11,6 +11,7 @@
 \usepackage{times,mathptmx}
 \usepackage{geometry}
 \usepackage{slashed}
+\usepackage{mathtools}
 \renewcommand\baselinestretch{1.5}\protect
 \abovedisplayshortskip 3 pt
 \belowdisplayshortskip 3 pt
@@ -516,7 +517,8 @@ The gluon-quark vertex can be obtained from the action above
 	\Longrightarrow&(F^{\bar{q}A}_k)^a_\mu=-iZ_{q,k}Z^{\frac{1}{2}}_{A,k}g_k (\gamma_\mu t^a q)
 \end{split}
 \end{equation}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%介子顶点
 
 \subsection{Meson vertex}
 The corresponding effective action of the meson part is
@@ -599,7 +601,52 @@ Then the other derivation part of the Pion and Sigma meson can be written as
 \end{split}
 \end{equation}
 If we only take the lowest derivation into account
-
+\begin{equation}
+\begin{split}
+F^{\sigma\sigma}_k&=\frac{\delta^3\Gamma_k}{\delta\sigma^3}\bigg|_{\bar{\phi}}\sigma+\frac{\delta^3\Gamma_k}{\delta\sigma^2\delta\pi_k}\bigg|_{\bar{\phi}}\pi_k\\
+&=\big[3(2\rho)^{\frac{1}{2}}V^{(2)}_k(\rho)+(2\rho)^{\frac{3}{2}}V^{(3)}_{k}(\rho)\big]\sigma
+\end{split}
+\end{equation}
+\begin{equation}
+\begin{split}
+(F^{\sigma\pi}_k)_j&=\frac{\delta^3\Gamma_k}{\delta\sigma\delta\pi_j\delta\sigma}\bigg|_{\bar{\phi}}\sigma+\frac{\delta^3\Gamma_k}{\delta\sigma\delta\pi_j\delta\pi_k}\bigg|_{\bar{\phi}}\pi_k\\
+&=\delta_{jk}(2\rho)^{\frac{1}{2}}V^{(2)}_k(\rho)\pi_k=(2\rho)^{\frac{1}{2}}V^{(2)}_{k}(\rho)\pi_j
+\end{split}
+\end{equation}
+\begin{equation}
+(F^{\pi\sigma}_k)_i=(2\rho)^{\frac{1}{2}}V^{(2)}_k(\rho)\pi_i
+\end{equation}
+\begin{equation}
+(F^{\pi\pi}_k)_{ij}=\frac{\delta^3\Gamma_k}{\delta\pi_i\delta\pi_j\delta\sigma}\bigg|_{\bar{\phi}}=\delta_{ij}(2\rho)^{\frac{1}{2}}V^{(2)}_k(\rho)\sigma
+\end{equation}
+And we define
+\begin{equation}
+\begin{split}
+V_{3\sigma}(\rho)&=3(2\rho)^{\frac{1}{2}}V^{(2)}_k(\rho)+(2\rho)^{\frac{3}{2}}V^{(3)}_k(\rho)\\
+V_{2\pi\sigma}&=(2\rho)^{\frac{1}{2}}V^{(2)}_k(\rho)
+\end{split}
+\end{equation}
+Then we can write the matrix elements as
+\begin{equation}
+\begin{split}
+F^{\sigma\sigma}_k=V_{3\sigma}(\rho)\sigma,\quad (F^{\sigma\pi}_k)_j=V_{2\pi\sigma}(\rho)\pi_j,\quad (F^{\pi\sigma}_k)_i=V_{2\pi\sigma}(\rho)\pi_i,\quad (F^{\pi\pi}_k)_{ij}=\delta_{ij}V_{2\pi\sigma}(\rho)\sigma
+\end{split}
+\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%夸克介子顶点
+\subsection{Quark-Meson Vertex}
+We can get the quark-meson interaction vertex by the derivation of the Yukawa part of the effective action
+\begin{equation}
+\Gamma_k\sim h_k\big[ \bar{q}(i\gamma_5 T^a \pi^a +T^0\sigma)q \big]
+\end{equation}
+\begin{equation}
+\begin{split}
+(F^{\sigma q}_k)_j&=\frac{\overrightarrow{\delta}}{\delta\sigma}\Gamma_k\frac{\overleftarrow{\delta}}{\delta q_j}=h_k(\bar{q}T^0)_j\quad\Rightarrow\quad F^{\sigma q}_k=h_k \bar{q}T^0\\
+(F^{\sigma \bar{q}}_k)_j&=\frac{\overrightarrow{\delta}}{\delta\sigma}\Gamma_k\frac{\overleftarrow{\delta}}{\delta \bar{q}_j}=-h_k\prescript{}{j}{(T^0 q)}\quad\Rightarrow\quad F^{\sigma \bar{q}}_k=-h_k q^TT^{0T}\\
+(F^{q\sigma}_k)_i&=\frac{\overrightarrow{\delta}}{\delta q_i}\Gamma_k\frac{\overleftarrow{\delta}}{\delta \sigma}=-h_k(\bar{q}T^0)_i\quad\Rightarrow\quad F^{q\sigma}_k=-h_k T^{0T}\bar{q}^T\\
+(F^{\bar{q}\sigma}_k)_i&=\frac{\overrightarrow{\delta}}{\delta\bar{q}_i}\Gamma_k\frac{\overleftarrow{\delta}}{\delta\sigma}=h_k\prescript{}{i}{(T^0 q)}\quad\Rightarrow\quad F^{\bar{q}\sigma}_k=h_k T^0 q\\
+\end{split}
+\end{equation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %附录 n点函数的傅立叶变换
 \begin{appendices}
