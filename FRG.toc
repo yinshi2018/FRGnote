@@ -1,0 +1,8 @@
+\contentsline {section}{\numberline {1}Wetterich Equation}{3}
+\contentsline {section}{\numberline {2}QCD}{6}
+\contentsline {subsection}{\numberline {2.1}Meson field propagator}{7}
+\contentsline {subsection}{\numberline {2.2}Quark field propagator}{8}
+\contentsline {subsection}{\numberline {2.3}Gluon field propagator}{8}
+\contentsline {subsection}{\numberline {2.4}Gluon vertex}{9}
+\contentsline {subsection}{\numberline {2.5}Meson vertex}{11}
+\contentsline {section}{\numberline {A}Fourier transform of n-point function}{12}
