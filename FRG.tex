@@ -645,6 +645,23 @@ We can get the quark-meson interaction vertex by the derivation of the Yukawa pa
 (F^{\sigma \bar{q}}_k)_j&=\frac{\overrightarrow{\delta}}{\delta\sigma}\Gamma_k\frac{\overleftarrow{\delta}}{\delta \bar{q}_j}=-h_k\prescript{}{j}{(T^0 q)}\quad\Rightarrow\quad F^{\sigma \bar{q}}_k=-h_k q^TT^{0T}\\
 (F^{q\sigma}_k)_i&=\frac{\overrightarrow{\delta}}{\delta q_i}\Gamma_k\frac{\overleftarrow{\delta}}{\delta \sigma}=-h_k(\bar{q}T^0)_i\quad\Rightarrow\quad F^{q\sigma}_k=-h_k T^{0T}\bar{q}^T\\
 (F^{\bar{q}\sigma}_k)_i&=\frac{\overrightarrow{\delta}}{\delta\bar{q}_i}\Gamma_k\frac{\overleftarrow{\delta}}{\delta\sigma}=h_k\prescript{}{i}{(T^0 q)}\quad\Rightarrow\quad F^{\bar{q}\sigma}_k=h_k T^0 q\\
+(F^{\pi q}_k)_{aj}&=\frac{\overrightarrow{\delta}}{\delta\pi_a}\Gamma_k\frac{\overleftarrow{\delta}}{\delta q_j}=h_k(\bar{q}i\gamma_5 T^a)_j\quad\Rightarrow\quad F^{\pi q}_k=h_k \bar{q}i\gamma_5T^a\\
+(F^{\pi \bar{q}}_k)_{aj}&=\frac{\overrightarrow{\delta}}{\delta\pi_a}\Gamma_k\frac{\overleftarrow{\delta}}{\delta \bar{q}_j}=-h_k\prescript{}{j}(i\gamma_5 T^a q)\quad\Rightarrow\quad F^{\pi \bar{q}}_k=-h_k q^T (i\gamma_5T^a)^T=-(F^{\bar{q}\pi}_k)^T\\
+(F^{q\pi}_k)_{ia}&=\frac{\overrightarrow{\delta}}{\delta q_i}\Gamma_k\frac{\overleftarrow{\delta}}{\delta \pi_a}=-h_k(\bar{q}i\gamma_5 T^a)_i\quad\Rightarrow\quad F^{q\pi}_k=-h_k(i\gamma_5T^a)^T\bar{q}^T=-(F^{\pi q}_k)^T\\
+(F^{\bar{q}\pi}_k)_{ia}&=\frac{\overrightarrow{\delta}}{\delta \bar{q}_i}\Gamma_k\frac{\overleftarrow{\delta}}{\delta \pi_a}=h_k\prescript{}{i}(i\gamma_5 T^a q)\quad\Rightarrow\quad F^{\bar{q}\pi}_k=h_k i\gamma_5 T^a q 
+\end{split}
+\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%四费米子相互作用
+\subsection{Four-fermion interaction}
+Here is the vertex of the four-quark interaction. Be careful of the exchange of the fermion field which obay the Grassman algebra. The effective action of the four-fermion part is
+\begin{equation}
+\Gamma_k \sim -\lambda_{q,k}\bigg[ (\bar{q}T^0q)^2-(\bar{q}\gamma_5T^aq)^2 \bigg]
+\end{equation}
+\begin{equation}
+\begin{split}
+\frac{\overrightarrow{\delta}}{\delta\bar{q}_i}\Gamma_k&=-2\lambda_{q,k}\bigg[\prescript{}{i}(T^0q)(\bar{q}T^0q)-\prescript{}{i}(\gamma_5T^aq)(\bar{q}\gamma_5T^aq)\bigg]\\
+\frac{\overrightarrow{\delta}}{\delta\bar{q}_i}\Gamma_k\frac{\overleftarrow{\delta}}{\delta q_j}&=-2\lambda_{q,k}\bigg\{T^0_{ij}(\bar{q}T^0q)+\prescript{}{i}(T^0q)(\bar{q}T^0)_j-(\gamma_5T^a)_{ij}(\bar{q}\gamma_5T^aq)-\prescript{}{i}(\gamma_5T^aq)(\bar{q}\gamma_5T^a)_j\bigg\}
 \end{split}
 \end{equation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
