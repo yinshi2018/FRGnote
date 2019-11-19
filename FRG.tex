@@ -1,5 +1,6 @@
 \documentclass[UTF8]{article}
 \usepackage{appendix}
+\usepackage{amsmath}
 \usepackage{dsfont}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -237,8 +238,8 @@ all kind of fields. So we can expanse the \eqref{weq2} with the number of the fi
 \partial_t\Gamma_k[\Phi]=&\frac{1}{2}STr\widetilde{\partial_t}ln(P+F)\\
 =&\frac{1}{2}STr\widetilde{\partial_t}ln[P(1+\frac{1}{P}F)]\\
 \sim&\frac{1}{2}STr\widetilde{\partial_t}ln(1+\frac{1}{P}F)\\
-=&\frac{1}{2}STr\bigg\{\widetilde{\partial_t}[\frac{1}{P}F-\frac{1}{2}(\frac{1}{P}F)^2+\frac{1}{3}
-(\frac{1}{P}F)^3-\frac{1}{4}(\frac{1}{P}F)^4+\cdots]\bigg\}\\
+=&\frac{1}{2}STr\{\widetilde{\partial_t}[\frac{1}{P}F-\frac{1}{2}(\frac{1}{P}F)^2+\frac{1}{3}
+(\frac{1}{P}F)^3-\frac{1}{4}(\frac{1}{P}F)^4+\cdots]\}\\
 =&\frac{1}{2}STr\widetilde{\partial_t}(\frac{1}{P}F)-\frac{1}{4}STr\widetilde{\partial_t}
 (\frac{1}{P}F)^2+\frac{1}{6}STr\widetilde{\partial_t}(\frac{1}{P}F)^3-\frac{1}{8}STr\widetilde
 {\partial_t}(\frac{1}{P}F)^4+\cdots
@@ -397,6 +398,7 @@ G^{\overline{q}q}_{k}&=-(G^{q\overline{q}}_{k})^T
 %场依赖部分F
 %胶子顶点
 \subsection{Gluon vertex}
+First is the gauge part
 \begin{equation}
 \begin{split}
 \Gamma_k&\sim\frac{1}{4}F^{a}_{\mu\nu}F^{a}_{\mu\nu}\\
@@ -439,31 +441,121 @@ A^{c}_{\nu}
 \end{equation}
 \begin{equation}
 \begin{split}
-\frac{\delta^3\Gamma_1}{\delta A^{a}_{\mu}\delta A^{b}_{\nu}\delta A^{c}_{\rho}}&=2\delta_{\mu\nu}f^{abc}[(\partial_\rho)_b-(\partial_\rho)_a]+2f^{abc}[(\partial_\nu)_a\delta_{\mu\rho}-(\partial_\mu)_b\delta_{\rho\nu}]+2f^{abc}[(\partial_\mu)_c\delta_{\rho\nu}-(\partial_\nu)_c\delta_{\mu\rho}]\\
-&=2f^{abc} \bigg\{ \delta_{\mu\nu}[(\partial_\rho)_b-(\partial_\rho)_a]+\delta_{\mu\rho}[(\partial_\nu)_a-(\partial_\nu)_c]+\delta_{\rho\nu}[(\partial_\mu)_c-(\partial_\mu)_b] \bigg\}
+\frac{\delta^3\Gamma_1}{\delta A^{a}_{\mu}\delta A^{b}_{\nu}\delta A^{c}_{\rho}}&=2\delta_{\mu\nu}f^{abc}[(\partial_\rho)_b-(\partial_\rho)_a]+2\delta_{\mu\nu}f^{abc}[(\partial_\nu)_a \delta_{\mu\rho}-(\partial_\mu)_b \delta_{\nu\rho}]+2f^{abc}[(\partial_\mu)_c \delta_{\rho\nu}-(\partial_\nu)_c \delta_{\mu\rho}]\\
+&=2f^{abc}\bigg\{\delta_{\mu\nu}[(\partial_\rho)_b-(\partial_\rho)_a]+\delta_{\mu\rho}[(\partial_\nu)_a-(\partial_\nu)_c]+\delta_{\rho\nu}[(\partial_\mu)_c-(\partial_\mu)_b]\bigg\}
 \end{split}
 \end{equation}
-If we set
-\begin{equation}
+Then we assume
+\begin{align}
 \begin{split}
 \Gamma_2&=f^{abc}f^{ab'c'}A^b_\mu A^c_\nu A^{b'}_\mu A^{c'}_\nu\\
 &=f^{abc}f^{a'b'c}A^a_\mu A^b_\nu A^{a'}_\mu A^{b'}_\nu
 \end{split}
-\end{equation}
-Then we can obtain the derivation of the $\Gamma_2$
+\end{align}
+And the derivation can be written as
 \begin{equation}
-\begin{split}
 \frac{\delta\Gamma_2}{\delta A^a_\mu}=4f^{abc}f^{a'b'c}A^b_\nu A^{a'}_\mu A^{b'}_\nu
+\end{equation}
+\begin{equation}
+\begin{split}
+	\frac{\delta\Gamma_2}{\delta A^a_\mu A^b_\nu}&=4f^{abc}f^{a'b'c}A^{a'}_\mu A^{b'}_\nu+4f^{ab''c}f^{bb'c}A^{b''}_\rho \delta_{\mu\nu}A^{b'}_\rho+4f^{ab''c}f^{a'bc}A^{b''}_\nu A^{a'}_\mu\\
+&=4f^{abc}f^{a'b'c}A^{a'}_\mu A^{b'}_\nu+4\delta_{\mu\nu}f^{ab'c}f^{bb''c}A^{b'}_\rho A^{b''}_\rho -4f^{ab''c}f^{ba'c}A^{a'}_\mu A^{b''}_\nu
+\end{split}
+\end{equation}
+So now we can obtain the F matrix elements of the glon part
+\begin{equation}
+\begin{split}
+	(F^{AA}_k)^{ab}_{\mu\nu}=&\frac{\delta^2}{A^a_\mu A^b_\nu}(\frac{1}{4}F^a_{\mu\nu}F^a_{\mu\nu} )\\=&Z^{\frac{3}{2}}_{A,k}g_k f^{abc}\bigg\{\delta_{\mu\nu}[(\partial_\rho)_b-(\partial_\rho)_a]A^c_\rho+[(\partial_\nu)_a A^c_\mu-(\partial_\mu)_b A^c_\nu]+(\partial_\mu A^c_\nu-\partial_\nu A^c_\mu)\bigg\}\\&+Z^2_{A,k}
+g^2_k [f^{abc}f^{a'b'c}A^{a'}_\mu A^{b'}_\nu+\delta_{\mu\nu}f^{ab'c}f^{bb''c}A^{b'}_\rho A^{b''}_\rho-f^{ab''c}f^{ba'c}A^{a'}_\mu A^{b''}_\nu]
+\end{split}
+\end{equation}
+From the expression of the effective action we find that the interaction between the gluon and meson vanished
+\begin{equation}
+F^{A\sigma}_k=0
+\end{equation}
+\begin{equation}
+F^{A\pi}_k=0
+\end{equation}
+Now we derive the gluon-quark vertex. The gluon-quark part of the effective action reads
+\begin{equation}
+	\Gamma_k\sim Z_{q,k}\bar{q}\gamma_\mu D_\mu q
+\end{equation}
+The expression of the convariant derivative is
+\begin{equation}
+	D_\mu=\partial_\mu -iZ^{\frac{1}{2}}_{A,k}g_k A^a_\mu t^a
+\end{equation}
+So we get
+\begin{equation}
+\begin{split}
+	\Gamma_k&\sim Z_{q,k}\bar{q}\gamma_\mu (-iZ^{\frac{1}{2}}_{A,k}g_k A^a_\mu t^a)q\\
+	&=-iZ_{q,k}Z^{\frac{1}{2}}_{A,k}g_k A^a_\mu \bar{q}\gamma_\mu t^a q
+\end{split}
+\end{equation}
+The gluon-quark vertex can be obtained from the action above
+\begin{equation}
+\begin{split}
+	&(F^{Aq}_k)^a_{\mu j}=\frac{\overrightarrow{\delta}}{\delta A^a_\mu}\Gamma_k \frac{\overleftarrow{\delta}}{\delta q_j}=-iZ_{q,k}Z^{\frac{1}{2}}_{A,k}g_k (\bar{q}\gamma_\mu t^a)_j\\
+	\Longrightarrow& (F^{Aq}_k)^a_\mu=-iZ_{q,k}Z^{\frac{1}{2}}_{A,k}g_k(\bar{q}\gamma_\mu t^a)
 \end{split}
 \end{equation}
 \begin{equation}
 \begin{split}
-\frac{\delta^2\Gamma_2}{\delta A^a_\mu\delta A^b_\nu}=&4f^{abc}f^{a'b'c}A^{a'}_\mu A^{b'}_\nu+4f^{ab''c}f^{ab'c}A^{b''}_\rho \delta_{\mu\nu} A^{b'}_\rho\\
-&+4f^{ab''c}f^{a'bc}A^{b''}_\nu A^{a'}_\mu\\
-=&4f^{abc}f^{a'b'c}A^{a'}_\mu A^{b'}_\nu+4\delta_{\mu\nu}f^{ab'c}f^{ab''c}A^{b'}_\rho A^{b''}_\rho-4f^{ab''c}f^{ba'c}A^{a'}_\mu A^{b''}_\nu
+	&(F^{A\bar{q}}_k)^a_{\mu j}=\frac{\overrightarrow{\delta}}{\delta A^a_\mu}\Gamma_k \frac{\overleftarrow{\delta}}{\delta \bar{q}_j}=iZ_{q,k}Z^{\frac{1}{2}}_{A,k}g_k \,\,_{j}(\gamma_\mu t^a q)\\
+	\Longrightarrow&(F^{A\bar{q}}_k)^a_\mu=iZ_{q,k}Z^{\frac{1}{2}}_{A,k}g_k q^T (\gamma_\mu t^a)^T=-(F^{\bar{q}A}_k)^{a\,\,T}_\mu
 \end{split}
 \end{equation}
-So we get the F matrix element of the gluon part 
+\begin{equation}
+\begin{split}
+	&(F^{qA}_k)^b_{i\nu}=\frac{\overrightarrow{\delta}}{\delta q_i}\Gamma_k\frac{\overleftarrow{\delta}}{\delta A^b_\nu}=iZ_{q,k}Z^{\frac{1}{2}}_{A,k}g_k (\bar{q}\gamma_\nu t^b)_i\\
+	\Longrightarrow&(F^{qA}_k)^a_\mu=iZ_{q,k}Z^{\frac{1}{2}}_{A,k}g_k(\gamma_\mu t^a)^T \bar{q}^T=-(F^{Aq}_{k})^{a\,\,T}_\mu
+\end{split}
+\end{equation}
+\begin{equation}
+\begin{split}
+	&(F^{\bar{q}A}_k)^a_{i\nu}=\frac{\overrightarrow{\delta}}{\delta \bar{q}_i}\Gamma_k \frac{\overleftarrow{\delta}}{\delta A^b_\nu}=iZ_{q,k}Z^{\frac{1}{2}}_{A,k}g_k \,\,_{i}(\gamma_\nu t^b q)\\
+	\Longrightarrow&(F^{\bar{q}A}_k)^a_\mu=-iZ_{q,k}Z^{\frac{1}{2}}_{A,k}g_k (\gamma_\mu t^a q)
+\end{split}
+\end{equation}
+
+
+\subsection{Meson vertex}
+The corresponding effective action of the meson part is
+\begin{equation}
+	\Gamma_k \sim V_k(\rho)-c\sigma
+\end{equation}
+the $\rho$ stands for the square of the meson field
+\begin{equation}
+	\rho=\frac{1}{2}\phi^2_i
+\end{equation}
+and the definition of the meson field are
+\begin{equation}
+	\phi_{i=0}=\sigma ,\,\,\,\,\phi_i=\pi_i\,\,\,\,i=1,2,3
+\end{equation}
+Then we define 
+\begin{equation}
+\begin{cases}
+\phi_i=\bar{\phi}_0+\sigma,\quad for\,\,\,\, i=0\\
+\phi_i=\pi_i,\quad for\,\,\,\, i=1,2,3\\
+\end{cases}
+\end{equation}
+The derivation of the effective action 
+\begin{equation}
+	\frac{\delta \Gamma_k}{\delta \phi_i}=V^{'}_k(\rho)\phi_i-c\delta_{i,0}
+\end{equation}
+\begin{equation}
+	\frac{\delta^2\Gamma_k}{\delta\phi_i\delta\phi_j}=V^{'}_k(\rho)\delta_{i,j}+V^{''}_k(\rho)\phi_i\phi_j
+\end{equation}
+Now expand the equation above at the point $\phi_i=\bar{\phi}_i$
+\begin{equation}
+\bar{\phi}_i=
+	\begin{cases}
+\bar{\phi}_0\,\,\,\,\,\,\,\, i=0\\
+0\,\,\,\,\,\,\,\, i=1,2,3\\
+\end{cases}
+\end{equation}
+\begin{equation}
+	(\Gamma^{\phi\phi}_k)_{ij}=(\Gamma^{\phi\phi}_k)_{ij}\bigg\arrowvert_{\bar{\phi}}+\frac{\delta^3\Gamma_k}{\delta\phi_i\delta\phi_j\delta\phi_k}\bigg\arrowvert_{\bar{\phi}}(\phi_k-\bar{\phi}_k)+\frac{1}{2}\frac{\delta^4\Gamma_k}{\delta\phi_i\delta\phi_j\delta\phi_k\delta\phi_l}\bigg\arrowvert_{\bar{\phi}}(\phi_k-\bar{\phi}_k)(\phi_l-\bar{\phi}_l)+\dots
+\end{equation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %附录 n点函数的傅立叶变换
 \begin{appendices}
