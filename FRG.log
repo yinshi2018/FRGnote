@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.7.23)  19 NOV 2019 22:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.7.23)  20 NOV 2019 20:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -512,7 +512,7 @@ File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
 Here is how much of TeX's memory you used:
  4116 strings out of 492649
  58701 string characters out of 6129607
- 154155 words of memory out of 5000000
+ 155155 words of memory out of 5000000
  7854 multiletter control sequences out of 15000+600000
  47547 words of font info for 117 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -528,7 +528,7 @@ ype1/urw/symbol/usyr.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/sy
 mbol/usyr.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/times/utmb8a.
 pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/
 local/texlive/2018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on FRG.pdf (15 pages, 127543 bytes).
+Output written on FRG.pdf (15 pages, 128531 bytes).
 PDF statistics:
  94 PDF objects out of 1000 (max. 8388607)
  66 compressed objects within 1 object stream

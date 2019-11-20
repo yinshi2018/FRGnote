@@ -7,4 +7,4 @@
 \contentsline {subsection}{\numberline {2.5}Meson vertex}{11}
 \contentsline {subsection}{\numberline {2.6}Quark-Meson Vertex}{13}
 \contentsline {subsection}{\numberline {2.7}Four-fermion interaction}{14}
-\contentsline {section}{\numberline {A}Fourier transform of n-point function}{14}
+\contentsline {section}{\numberline {A}Fourier transform of n-point function}{15}
